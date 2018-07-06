@@ -1,5 +1,7 @@
 // vue.config.js
 module.exports = {
-    // options...
-    assetsDir:'vasset'
-  }
+  // options...
+  assetsDir: 'vasset',
+
+  lintOnSave: undefined
+}
