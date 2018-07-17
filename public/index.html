@@ -23,9 +23,13 @@
   <script src="<%= BASE_URL %>jquery-1.9.1.min.js"></script>
   <script>
   $(document).ready(function() {
+      var animateDelay = Math.random() * 1000 + 500;
       setTimeout(function(){
         $('body').addClass('loaded');
-      }, 1500);
+        setTimeout(function(){
+          $('#loader-wrapper').remove();
+        },1000);
+      }, animateDelay);
     });
   </script>
 </html>

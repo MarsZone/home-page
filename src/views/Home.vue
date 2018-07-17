@@ -1,32 +1,38 @@
 <template>
   <div class="home">
-    <div class="spin">
-      <sokect id='socket'></sokect>
+    <div class="core-box">
+      <!-- <core id='core'></core> -->
     </div>
-    
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>欢迎到访</h1>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import sokect from '@/components/spinner/Socket.vue'
+//  import core from '@/components/SquareCore.vue'
 
 export default {
   name: 'home',
   components: {
     // HelloWorld
-    sokect
+     core
   }
 }
 </script>
 <style lang="less" scoped>
-  .spin{
-    margin: 0 auto;
+  h1{
+    text-align: center;
+    padding-top: 20px;
   }
-  #socket{
-    transform:scale(2);
-  }
+  // .core-box{
+  //   margin: auto;
+  //   position: absolute;
+  //   left: 0px;
+  //   right: 0px;
+  //   top: 40px;
+  //   width: 40px;
+  //   height: 40px;
+  // }
 
 </style>
