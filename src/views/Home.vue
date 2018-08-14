@@ -3,7 +3,7 @@
     <div class="core-box">
       <!-- <core id='core'></core> -->
     </div>
-    <h1>欢迎到访</h1>
+    <h1>主页</h1>
   </div>
 </template>
 

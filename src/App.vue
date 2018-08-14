@@ -1,15 +1,13 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">主页</router-link> |
-      <a href="http://marszm.cn/blog/wordpress/">博客</a> |
-      <router-link to="/about">关于</router-link>
-    </div> -->
-    <div class="menu_box">
-      <circle-menu></circle-menu>
-    </div>
+    
+    <transition name="flipOutX">
+      <div class="menu_box" v-on:click='onclick' v-if="menu_show">
+        <circle-menu ref = 'circleMenu'></circle-menu>
+      </div>
+    </transition>
     <transition name="fade" mode="out-in">
-      <router-view/>
+      <router-view v-if="!menu_show"/>
     </transition>
   </div>
 </template>
@@ -18,20 +16,43 @@
 import circleMenu from '@/components/Menu.vue'
 
 export default {
+  data(){
+    return{
+      checkbox_checked:false,
+      menu_show:true,
+    }
+  },
   components: {
     circleMenu
+  },
+  watch: {
+    // 如果路由有变化，会再次执行该方法
+    '$route': function(){
+      if(this.$store.state.viewState.currentView == 'home'){
+         this.menu_show=true;
+      }
+    }
+  },
+  methods:{
+    onclick:function(e){
+      console.log(e.target.className);
+      if(e.target.className != 'menu-open-button' && e.target.className != 'menu-open'){
+        this.$refs.circleMenu.hideMenu();
+        if($(e.target).hasClass('menu-item'))
+        {
+           setTimeout(() => {
+            this.$store.commit('viewState/updateView','other');
+            this.menu_show=false;
+           }, 200);
+        }
+      }
+    }
   }
 }
 </script>
 
 
 <style lang="less">
-// .fade-enter-active, .fade-leave-active {
-//   transition: opacity .5s;
-// }
-// .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-//   opacity: 0;
-// }
 
 .menu_box{
   width: 100%;
@@ -45,7 +66,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color:white;
 }
 #nav {
   padding: 30px;
@@ -58,4 +78,40 @@ export default {
     }
   }
 }
+.flipOutX-leave-active {
+  animation-duration: 0.75s;
+  animation-name: flipOutX;
+  backface-visibility: visible !important;
+}
+.flipOutX-enter-active{
+  animation-duration: 0.75s;
+  animation-name: flipInX;
+}
+
+@keyframes flipOutX {
+  from {
+    transform: perspective(400px);
+  }
+
+  // 30% {
+  //   transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+  //   opacity: 1;
+  // }
+
+  to {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    opacity: 0;
+  }
+}
+@keyframes flipInX {
+  from {
+    transform: perspective(400px);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(400px);
+    opacity: 1;
+  }
+}
+
 </style>

@@ -16,6 +16,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '/3d',
+      name: '3d',
+      component: About
     }
   ]
 })
