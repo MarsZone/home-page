@@ -25,6 +25,12 @@ export default {
   components: {
     circleMenu
   },
+  mounted:function(){
+    var ishome = this.$route.name == 'home';
+    if(ishome == false){
+      this.menu_show = false;
+    }
+  },
   watch: {
     // 如果路由有变化，会再次执行该方法
     '$route': function(){
@@ -35,7 +41,7 @@ export default {
   },
   methods:{
     onclick:function(e){
-      console.log(e.target.className);
+      // console.log(e.target.className);
       if(e.target.className != 'menu-open-button' && e.target.className != 'menu-open'){
         this.$refs.circleMenu.hideMenu();
         if($(e.target).hasClass('menu-item'))

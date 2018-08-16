@@ -8,7 +8,7 @@
                 <span v-on:click.stop class="lines line-3"></span>
             </label>
             <router-link to="/" class="menu-item blue">主页</router-link>
-            <router-link to="/" class="menu-item green">布局</router-link>
+            <router-link to="/mgow" class="menu-item green">MGOW</router-link>
             <a href="http://marszm.cn/blog/wordpress/" class="menu-item red">博客</a>
             <a href="http://marszm.cn/backend/" class="menu-item purple">后台</a>
             <a href="#" class="menu-item orange">3D</a>
@@ -38,9 +38,27 @@ export default {
 
 <style lang="less" scoped>
 @menu_circle_size:50px;
+@menu_square_width:80px;
+@menu_square_height:30px;
 @font-size:18px;
 
-.menu-item,
+.menu-item
+{
+   background: #EEEEEE;
+   border-radius: 20%;
+   width: @menu_square_width;
+   height: @menu_square_height;
+   margin-left: -45px;
+   margin-top: 10px;
+   position: absolute;
+   color: #FFFFFF;
+   text-align: center;
+   line-height: @menu_square_height;
+   transform: translate3d(0, 0, 0);
+   transition: transform ease-out 200ms;
+   transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
+   opacity: 0;
+}
 .menu-open-button {
    background: #EEEEEE;
    border-radius: 100%;
@@ -51,10 +69,7 @@ export default {
    color: #FFFFFF;
    text-align: center;
    line-height: @menu_circle_size;
-   -webkit-transform: translate3d(0, 0, 0);
    transform: translate3d(0, 0, 0);
-   -webkit-transition: -webkit-transform ease-out 200ms;
-   transition: -webkit-transform ease-out 200ms;
    transition: transform ease-out 200ms;
    transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
 }
@@ -149,6 +164,7 @@ export default {
 
 .menu-open:checked ~ .menu-item {
    transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
+   opacity: 1;
 }
 
 .menu-open:checked ~ .menu-item:nth-child(3) {
