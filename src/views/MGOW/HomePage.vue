@@ -1,61 +1,34 @@
 <template>
-  <div class="home-page">
+  <div class="home-page" >
+    <!-- 导航栏 -->
     <div class="navigation">
       <div class="nav-container">
         <div class="brand">
-          <a href="#!">Logo</a>
+          <a href="#mgow">Logo</a>
         </div>
         <nav>
-          <div class="nav-mobile">
-            <a id="nav-toggle" href="#!">
+          <div class="nav-mobile" >
+            <a id="nav-toggle" v-on:click="showList = !showList"
+                               v-bind:class="{ active: showList }">
               <span></span>
             </a>
           </div>
-          <ul class="nav-list">
-            <li>
-              <a href="#/mgow">Home</a>
-            </li>
-            <li>
-              <a href="#/mgow">About</a>
-            </li>
-            <li>
-              <a href="#/mgow">Services</a>
-              <ul class="nav-dropdown">
-                <li>
-                  <a href="#/mgow">Web Design</a>
-                </li>
-                <li>
-                  <a href="#/mgow">Web Development</a>
-                </li>
-                <li>
-                  <a href="#/mgow">Graphic Design</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#/mgow">Pricing</a>
-            </li>
-            <li>
-              <a href="#/mgow">Portfolio</a>
-              <ul class="nav-dropdown">
-                <li>
-                  <a href="#/mgow">Web Design</a>
-                </li>
-                <li>
-                  <a href="#/mgow">Web Development</a>
-                </li>
-                <li>
-                  <a href="#/mgow">Graphic Design</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#/mgow">Contact</a>
+          <ul class="nav-list" v-click-outside='closeEvent' v-show="showList">
+            <li v-for="item in menuList" :key="item.title" v-on:click="item.isShow = !item.isShow" >
+                <router-link :to=item.href>{{item.title}}</router-link>
+                <!-- 有子菜单的 -->
+                <ul class="nav-dropdown" v-if="item.dropDown" v-show="item.isShow">
+                  <li v-for="subTitle in item.dropDown" :key="subTitle.title">
+                    <router-link :to=subTitle.href>{{subTitle.title}}</router-link>
+                  </li>
+                </ul>
             </li>
           </ul>
         </nav>
       </div>
     </div>
+
+
     <h1>MGOW</h1>
     <router-link to="/" class="menu-item blue">
       <Button type="success" v-on:click="backHome">返回主页</Button>
@@ -63,14 +36,42 @@
   </div>
 </template>
 <script>
-  
   export default {
+    data:function(){
+      return{
+        showList:false,
+        showNavDropDown:false,
+        menuList:[
+        {href :'home',title :'Home'},
+        {href :'about',title :'About'},
+        {href :'',title :'Services',dropDown:[],isShow:false},
+        {href :'about',title :'Pricing'},
+        {href :'',title :'Portfolio',dropDown:[],isShow:false},
+        {href :'about',title :'Contact'}]
+      }
+    },
     beforeCreate: function () {
       this.$store.commit("viewState/updateView", "MGOW");
+    },
+    mounted:function(){
+      var ServicesDropDown = [{href :'about',title :'Web Design'},
+                              {href :'',title :'Web Development'},
+                              {href :'',title :'Graphic Design'}];
+      this.menuList.forEach(function(value,key,arr){
+        value.title == 'Services' ? value.dropDown = ServicesDropDown:'';
+        value.title == 'Portfolio' ? value.dropDown = ServicesDropDown:'';
+      });
     },
     methods: {
       backHome: function () {
         this.$store.commit("viewState/updateView", "home");
+      },
+      closeEvent:function(event){
+        // console.log('close event called');
+        this.menuList.forEach(function(value,key,arr){
+          value.isShow=false;
+        });
+        // this.showList=false;
       }
     }
   }
@@ -78,179 +79,9 @@
   ;
 </script>
 <style lang="less" scoped>
+  @import "style/nav.less";
   h1 {
     text-align: center;
     padding-top: 20px;
-  } // Navigation Variables
-  @content-width: 1000px;
-  @breakpoint: 799px;
-  @nav-height: 70px;
-  @nav-background: #262626;
-  @nav-font-color: #ffffff;
-  @link-hover-color: #2581DC;
-  // Outer navigation wrapper
-  .navigation {
-    height: @nav-height;
-    background: @nav-background;
-  }
-
-  // Logo and branding
-  .brand {
-    position: absolute;
-    padding-left: 20px;
-    float: left;
-    line-height: @nav-height;
-    text-transform: uppercase;
-    font-size: 1.4em;
-    a,
-    a:visited {
-      color: @nav-font-color;
-      text-decoration: none;
-    }
-  }
-
-  // Container with no padding for navbar
-  .nav-container {
-    max-width: @content-width;
-    margin: 0 auto;
-  }
-
-  // Navigation 
-  nav {
-    float: right;
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      li {
-        float: left;
-        position: relative;
-        a,
-        a:visited {
-          display: block;
-          padding: 0 20px;
-          line-height: @nav-height;
-          background: @nav-background;
-          color: @nav-font-color;
-          text-decoration: none;
-          &:hover {
-            background: @link-hover-color;
-            color: @nav-font-color;
-          }
-          &:not(:only-child):after {
-            padding-left: 4px;
-            content: ' ▾';
-          }
-        } // Dropdown list
-        ul li {
-          min-width: 190px;
-          a {
-            padding: 15px;
-            line-height: 20px;
-          }
-        }
-      }
-    }
-  }
-
-  // Dropdown list binds to JS toggle event
-  .nav-dropdown {
-    position: absolute;
-    display: none;
-    z-index: 1;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  /* Mobile navigation */
-
-  // Binds to JS Toggle
-  .nav-mobile {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: @nav-background;
-    height: @nav-height;
-    width: @nav-height;
-  }
-
-  @media only screen and (max-width: 798px) {
-    // Hamburger nav visible on mobile only
-    .nav-mobile {
-      display: block;
-    }
-    nav {
-      width: 100%;
-      padding: @nav-height 0 15px;
-      ul {
-        display: none;
-        li {
-          float: none;
-          a {
-            padding: 15px;
-            line-height: 20px;
-          }
-          ul li a {
-            padding-left: 30px;
-          }
-        }
-      }
-    }
-    .nav-dropdown {
-      position: static;
-    }
-  }
-
-  @media screen and (min-width: @breakpoint) {
-    .nav-list {
-      display: block !important;
-    }
-  }
-
-  #nav-toggle {
-    position: absolute;
-    left: 18px;
-    top: 22px;
-    cursor: pointer;
-    padding: 10px 35px 16px 0px;
-    span,
-    span:before,
-    span:after {
-      cursor: pointer;
-      border-radius: 1px;
-      height: 5px;
-      width: 35px;
-      background: @nav-font-color;
-      position: absolute;
-      display: block;
-      content: '';
-      transition: all 300ms ease-in-out;
-    }
-    span:before {
-      top: -10px;
-    }
-    span:after {
-      bottom: -10px;
-    }
-    &.active span {
-      background-color: transparent;
-      &:before,
-      &:after {
-        top: 0;
-      }
-      &:before {
-        transform: rotate(45deg);
-      }
-      &:after {
-        transform: rotate(-45deg);
-      }
-    }
-  }
-
-  // Page content 
-  article {
-    max-width: @content-width;
-    margin: 0 auto;
-    padding: 10px;
   }
 </style>

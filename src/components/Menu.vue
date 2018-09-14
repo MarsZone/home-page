@@ -37,19 +37,19 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@menu_circle_size:50px;
-@menu_square_width:80px;
-@menu_square_height:30px;
+@menu_circle_size:60px;
+@menu_square_width:65px;
+@menu_square_height:65px;
 @font-size:18px;
 
 .menu-item
 {
    background: #EEEEEE;
-   border-radius: 20%;
+   border-radius: 100%;
    width: @menu_square_width;
    height: @menu_square_height;
-   margin-left: -45px;
-   margin-top: 10px;
+   margin-left: -48px;
+   margin-top: -10px;
    position: absolute;
    color: #FFFFFF;
    text-align: center;
@@ -64,7 +64,8 @@ export default {
    border-radius: 100%;
    width: @menu_circle_size;
    height: @menu_circle_size;
-   margin-left: -30px;
+   margin-left: -45px;
+   margin-top: -10px;
    position: absolute;
    color: #FFFFFF;
    text-align: center;

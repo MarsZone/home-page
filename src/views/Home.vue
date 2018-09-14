@@ -3,20 +3,28 @@
     <div class="core-box">
       <!-- <core id='core'></core> -->
     </div>
-    <h1>主页</h1>
+    <h1>{{ $t("home.index") }} {{ $t("msg.welcome") }}</h1>
+
+    <Button type="success" v-on:click="changeLocale">切换语言</Button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-//  import core from '@/components/SquareCore.vue'
+// import core from '@/components/SquareCore.vue'
 
 export default {
   name: 'home',
   components: {
     // HelloWorld
      core
+  },
+  methods:{
+    changeLocale :function(){
+      this.$i18n.locale == 'en' ? this.$i18n.locale = 'zh': this.$i18n.locale = 'en';
+      // var char = this.$t("home.index"); 代码里调用
+    }
   }
 }
 </script>
