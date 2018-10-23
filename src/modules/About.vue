@@ -3,22 +3,22 @@
     <div class='page'>
       <div class='section menu'></div>
       <div class='section header'>
-        <img src='../assets/header.svg'/>
+        <img src='../assets/image/header.svg'/>
       </div>
       <div class='section content'>
-        <img src='../assets/content.svg'/>
+        <img src='../assets/image/content.svg'/>
       </div>
       <div class='section sign-up'>
-        <img src='../assets/sign-up.svg'/>
+        <img src='../assets/image/sign-up.svg'/>
       </div>
       <div class='section feature-1'>
-        <img src='../assets/feature.svg'/>
+        <img src='../assets/image/feature.svg'/>
       </div>
       <div class='section feature-2'>
-        <img src='../assets/feature.svg'/>
+        <img src='../assets/image/feature.svg'/>
       </div>
       <div class='section feature-3'>
-        <img src='../assets/feature.svg'/>
+        <img src='../assets/image/feature.svg'/>
       </div>
     </div>
     
@@ -32,11 +32,11 @@
 <script>
 export default {
   beforeCreate:function(){
-    this.$store.commit('viewState/updateView','about');
+    this.$store.commit('moduleState/updateModule','about');
   },
   methods:{
     backHome:function(){
-      this.$store.commit('viewState/updateView','home');
+      this.$store.commit('moduleState/updateModule','home');
     }
   }
 }

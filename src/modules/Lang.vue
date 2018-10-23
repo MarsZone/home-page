@@ -20,6 +20,9 @@ export default {
     // HelloWorld
      core
   },
+  beforeCreate: function () {
+      this.$store.commit("moduleState/updateModule", "lang");
+  },
   methods:{
     changeLocale :function(){
       this.$i18n.locale == 'en' ? this.$i18n.locale = 'zh': this.$i18n.locale = 'en';

@@ -3,14 +3,16 @@
 @content-width: 1000px;
 @breakpoint: 799px;
 @nav-height: 70px;
-@nav-background: #262626;
+@nav-background: rgba(28, 46, 70, 0.65);
+@nav-border-bottom:2px solid rgb(28, 46, 70);
 @nav-font-color: #ffffff;
 @link-hover-color: #2581DC;
 
 // Outer navigation wrapper
 .navigation {
     height: @nav-height;
-    background: @nav-background;
+    background-color: @nav-background;
+    border-bottom: @nav-border-bottom;
   }
 
   // Logo and branding
@@ -49,7 +51,7 @@
           display: block;
           padding: 0 20px;
           line-height: @nav-height;
-          background: @nav-background;
+          // background: @nav-background;
           color: @nav-font-color;
           text-decoration: none;
           &:hover {
@@ -63,6 +65,7 @@
         } // Dropdown list
         ul li {
           min-width: 190px;
+          background-color: rgba(28, 46, 70, 0.65);
           a {
             padding: 15px;
             line-height: 20px;
@@ -173,4 +176,45 @@
     max-width: @content-width;
     margin: 0 auto;
     padding: 10px;
+  }
+
+  //corner
+  .corner-upper-left {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid #5b769b;
+    border-left: 1px solid #5b769b;
+  }
+  
+  .corner-upper-right {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid #5b769b;
+    border-right: 1px solid #5b769b;
+  }
+  
+  .corner-bottom-right {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid #5b769b;
+    border-bottom: 1px solid #5b769b;
+  }
+  
+  .corner-bottom-left {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #5b769b;
+    border-left: 1px solid #5b769b;
   }

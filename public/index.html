@@ -21,16 +21,4 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
-  <script src="<%= BASE_URL %>lib/jquery-1.9.1.min.js"></script>
-  <script>
-  $(document).ready(function() {
-      var animateDelay = Math.random() * 1000 + 500;
-      setTimeout(function(){
-        $('body').addClass('loaded');
-        setTimeout(function(){
-          $('#loader-wrapper').remove();
-        },1000);
-      }, animateDelay);
-    });
-  </script>
 </html>

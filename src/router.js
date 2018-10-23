@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
-import Mgow from './views/MGOW/HomePage.vue'
+import Lang from './modules/Lang.vue'
+import About from './modules/About.vue'
+import Mars from './modules/Mars/Mhome.vue'
 
 Vue.use(Router)
 
@@ -10,8 +10,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
     },
     {
       path: '/about',
@@ -19,9 +17,18 @@ export default new Router({
       component: About
     },
     {
-      path: '/mgow',
-      name: 'mgow',
-      component: Mgow
+      path: '/lang',
+      name: 'lang',
+      component: Lang
+    },
+    {
+      path: '/mars',name: 'mars',component: Mars,
+      // children:[
+      //   {
+      //     path:'',
+      //     component:
+      //   }
+      // ]
     },
     {
       path: '/3d',

@@ -1,11 +1,11 @@
 
 const state = {
-    currentView : 'home'
+    currentModule : 'menu'
   }
   
 const mutations = {
-    updateView(state,view){
-        state.currentView = view;
+    updateModule(state,module){
+        state.currentModule = module;
     }
 }
 
