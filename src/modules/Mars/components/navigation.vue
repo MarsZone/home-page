@@ -57,9 +57,6 @@ export default {
       });
     },
     methods: {
-      backHome: function () {
-        this.$store.commit("moduleState/updateModule", "mars");
-      },
       closeEvent:function(event){
         // console.log('close event called');
         this.hideAllSubMenu();

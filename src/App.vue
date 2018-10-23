@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <!-- 页面切换 -->
-    <transition name="fade" mode="out-in">
-      <router-view v-if="!menu_show"/>
+    <transition name="fade" mode="in-out">
+      <router-view v-if="view_show"/>
     </transition>
     <!-- 菜单栏 -->
-    <transition name="flipOutX">
+    <transition name="flipOutX" v-on:after-leave="circleLeave">
       <div class="menu_box" v-on:click='onclick' v-if="menu_show">
         <circle-menu ref = 'circleMenu'></circle-menu>
       </div>
@@ -19,6 +19,7 @@ export default {
   data() {
     return {
       checkbox_checked: false,
+      view_show: false,
       menu_show: true
     };
   },
@@ -33,24 +34,28 @@ export default {
       setTimeout(function() {
         $("#loader-wrapper").remove();
       }, 1000);
-    }, 1000);
-
-    // var ishome = this.$route.name == 'home';
-    // if(ishome == false){
-    //   this.menu_show = false;
-    // };
+    }, 500);
+    this.ifShowMenu(this.$router.currentRoute.name);
   },
   watch: {
     // 如果路由有变化，会再次执行该方法
-    $route: function() {
-      var moduleEnum = ["mars", "about", "lang"];
-      console.log();
-      if (!moduleEnum.includes(this.$store.state.moduleState.currentModule)) {
-        this.menu_show = true;
-      }
+    $route: function(to,from) {
+      this.ifShowMenu(this.$router.currentRoute.name);
     }
   },
   methods: {
+    ifShowMenu:function(currentModule){
+      var moduleEnum = ["mars", "about", "lang"];
+      if (!moduleEnum.includes(currentModule)) {
+        this.menu_show = true;
+      }else{
+        this.menu_show = false;
+      }
+      this.view_show =! this.menu_show;
+    },
+    circleLeave:function(el,done){
+      this.view_show=true;
+    },
     onclick: function(e) {
       // console.log(e.target.className);
       if (
@@ -61,7 +66,6 @@ export default {
         if ($(e.target).hasClass("menu-item")) {
           setTimeout(() => {
             //点击到其他模块
-            this.$store.commit("moduleState/updateModule", "other");
             this.menu_show = false;
           }, 200);
         }
@@ -70,7 +74,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="less">
   @import "./assets/css/app.less";

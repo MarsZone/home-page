@@ -31,13 +31,7 @@
 </template>
 <script>
 export default {
-  beforeCreate:function(){
-    this.$store.commit('moduleState/updateModule','about');
-  },
   methods:{
-    backHome:function(){
-      this.$store.commit('moduleState/updateModule','home');
-    }
   }
 }
 </script>

@@ -1,6 +1,6 @@
 
 const state = {
-    currentModule : 'menu'
+    currentModule : 'home'
   }
   
 const mutations = {

@@ -30,15 +30,6 @@
     components: {
       navigation,
     },
-    beforeCreate: function () {
-      this.$store.commit("moduleState/updateModule", "mars");
-    },
-    beforeRouteLeave(to,from,next){
-      this.$store.commit("moduleState/updateModule", "other");
-      next((vm)=>{ //参数vm就是当前组件的实例。
-          // vm.$store.commit("moduleState/updateModule", "other");
-      })
-    },
     methods: {
     }
   }
