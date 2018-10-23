@@ -3,21 +3,17 @@
     <!-- 导航栏 -->
     <navigation></navigation>
     <!-- 主体 -->
-    <h1>Mars</h1>
+    <h1></h1>
     <!-- stars -->
     <div class="star-small"></div>
     <div class="star-medium"></div>
     <div class="star-big"></div>
     <!-- 文字测试 -->
     <div class='title'>
-      <span>Hello wrold!</span>
+      <span>Welcome to UFPC</span>
       <br>
-      <span>This is Test Text</span>
+      <span>United Federation of Planets Citizenship</span>
     </div>
-    <!-- 返回 -->
-    <router-link to="/" class="menu-item blue">
-      <Button type="success">返回主页</Button>
-    </router-link>
   </div>
 </template>
 <script>

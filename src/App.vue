@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <!-- 页面切换 -->
-    <transition name="fade" mode="in-out">
-      <router-view v-if="view_show"/>
-    </transition>
     <!-- 菜单栏 -->
     <transition name="flipOutX" v-on:after-leave="circleLeave">
       <div class="menu_box" v-on:click='onclick' v-if="menu_show">
         <circle-menu ref = 'circleMenu'></circle-menu>
       </div>
+    </transition>
+    <!-- 页面切换 -->
+    <transition name="fade" mode="in-out">
+      <router-view v-if="view_show"/>
     </transition>
   </div>
 </template>
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     ifShowMenu:function(currentModule){
-      var moduleEnum = ["mars", "about", "lang"];
+      var moduleEnum = ["citi", "about", "lang"];
       if (!moduleEnum.includes(currentModule)) {
         this.menu_show = true;
       }else{

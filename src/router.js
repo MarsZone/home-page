@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Lang from './modules/Lang.vue'
 import About from './modules/About.vue'
-import Mars from './modules/Mars/Mhome.vue'
+import Citizenship from './modules/Citizenship/Chome.vue'
 
 Vue.use(Router)
 
@@ -22,7 +22,7 @@ export default new Router({
       component: Lang
     },
     {
-      path: '/mars',name: 'mars',component: Mars,
+      path: '/citi',name: 'citi',component: Citizenship,
       // children:[
       //   {
       //     path:'',

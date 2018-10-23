@@ -8,7 +8,7 @@
                 <span v-on:click.stop class="lines line-3"></span>
             </label>
             <router-link to="/" class="menu-item blue">主页</router-link>
-            <router-link to="/mars" class="menu-item green">Mars</router-link>
+            <router-link to="/citi" class="menu-item green">Citi</router-link>
             <a href="http://marszm.cn/blog/wordpress/" class="menu-item red">博客</a>
             <a href="http://marszm.cn/backend/" class="menu-item purple">后台</a>
             <a href="#" class="menu-item orange">3D</a>

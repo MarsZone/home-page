@@ -3,7 +3,7 @@
     <div class="navigation">
       <div class="nav-container">
         <div class="brand">
-          <a href="#mgow">Logo</a>
+          <img class='img-logo' src="../image/clogo.svg" href="#mgow"/>
         </div>
         <nav>
           <div class="nav-mobile" >
@@ -39,8 +39,8 @@ export default {
         showList:false,
         showNavDropDown:false,
         menuList:[
-        {href :'mars',title :'Home',key:'1'},
-        {href :'about',title :'About',key:'2'},
+        {href :'citi',title :'Home',key:'1'},
+        {href :'/',title :'Menu',key:'2'},
         {href :'',title :'Services',key:'3',dropDown:[],isShow:false},
         {href :'',title :'Portfolio',dropDown:[],isShow:false},
         {href :'about',title :'Contact',key:'4'},
@@ -74,6 +74,9 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+  .img-logo{
+    padding-top: 23%;
+  }
   @import "../style/nav.less";
 </style>
 
