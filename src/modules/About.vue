@@ -3,26 +3,18 @@
     <div class='page'>
       <div class='section menu'></div>
       <div class='section header'>
-        <img src='../assets/image/header.svg'/>
       </div>
       <div class='section content'>
-        <img src='../assets/image/content.svg'/>
       </div>
       <div class='section sign-up'>
-        <img src='../assets/image/sign-up.svg'/>
       </div>
       <div class='section feature-1'>
-        <img src='../assets/image/feature.svg'/>
       </div>
       <div class='section feature-2'>
-        <img src='../assets/image/feature.svg'/>
       </div>
       <div class='section feature-3'>
-        <img src='../assets/image/feature.svg'/>
       </div>
     </div>
-    
-    
     <h1>关于</h1>
     <router-link to="/" class="menu-item blue">
       <Button type="success">返回主页</Button>

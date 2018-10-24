@@ -15,6 +15,9 @@
       <span>United Federation of Planets Citizenship</span>
     </div> -->
     <div class="page">
+      <div class='section header'>
+        Header
+      </div>
       <div class='section content'>
         content
       </div>
