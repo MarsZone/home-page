@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Lang from './modules/Lang.vue'
 import About from './modules/About.vue'
-import Citizenship from './modules/Citizenship/Chome.vue'
+import Citizen from './modules/Citizen/Chome.vue'
 
 Vue.use(Router)
 
@@ -22,7 +22,7 @@ export default new Router({
       component: Lang
     },
     {
-      path: '/citi',name: 'citi',component: Citizenship,
+      path: '/citizen',name: 'citizen',component: Citizen,
       // children:[
       //   {
       //     path:'',

@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     ifShowMenu:function(currentModule){
-      var moduleEnum = ["citi", "about", "lang"];
+      var moduleEnum = ["citizen", "about", "lang"];
       if (!moduleEnum.includes(currentModule)) {
         this.menu_show = true;
       }else{

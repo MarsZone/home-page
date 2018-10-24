@@ -39,7 +39,7 @@ export default {
         showList:false,
         showNavDropDown:false,
         menuList:[
-        {href :'citi',title :'Home',key:'1'},
+        {href :'citizen',title :'Home',key:'1'},
         {href :'/',title :'Menu',key:'2'},
         {href :'',title :'Services',key:'3',dropDown:[],isShow:false},
         {href :'',title :'Portfolio',dropDown:[],isShow:false},
