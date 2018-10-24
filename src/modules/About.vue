@@ -25,7 +25,7 @@
     
     <h1>关于</h1>
     <router-link to="/" class="menu-item blue">
-      <Button type="success" v-on:click="backHome">返回主页</Button>
+      <Button type="success">返回主页</Button>
     </router-link>
   </div>
 </template>

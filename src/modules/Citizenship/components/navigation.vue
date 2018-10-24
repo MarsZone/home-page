@@ -12,7 +12,7 @@
               <span></span>
             </a>
           </div>
-          <ul class="nav-list" v-click-outside='closeEvent' v-show="showList">
+          <ul class="nav-list" v-click-outside='closeEvent' v-show="showList" >
             <li v-for="(item,index) in menuList" :key="item.key" @click="menuClick(item,index)" >
                 <router-link :to=item.href>{{item.title}}</router-link>
                 <!-- 有子菜单的 -->
@@ -66,6 +66,7 @@ export default {
         item.isShow = !item.isShow;
       },
       hideAllSubMenu:function(){
+        // console.log(this.menuList);
         this.menuList.forEach(function(value,key,arr){
           value.isShow=false;
         });
