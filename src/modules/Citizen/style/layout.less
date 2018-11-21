@@ -7,13 +7,15 @@
   }
   .section {
     width: 100%;
-    height: 300px;
+    // height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: chocolate;
   }
   .header {
+    position: relative;
+    height: 500px;
     background-color:rgba(#B2D6FF,@alpha)
   }
   .menu {
@@ -26,19 +28,28 @@
   }
 
   .sign-up {
+    height: 300px;
     background-color: rgba(#D6E9FE, @alpha);
   }
 
   .feature-1 {
+    height: 300px;
     background-color: rgba(#F5CF8E, @alpha);
   }
 
   .feature-2 {
+    height: 300px;
     background-color: rgba(#F09A9D, @alpha);
   }
 
   .feature-3 {
+    height: 300px;
     background-color: rgba(#C8C6FA, @alpha);
+  }
+  
+  .footer{
+    // height: 400px;
+    // background-color: rgba(#d69a18, @alpha);
   }
 
   /* Mobile Styles */
@@ -84,5 +95,8 @@
     }
     .content {
       order: 2;
+    }
+    .footer{
+      order: 10;
     }
   }

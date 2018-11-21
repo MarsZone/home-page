@@ -3,7 +3,24 @@ import App from './App.vue'
 import router from './router'
 import store from './store/index'
 import i18n from './i18n'
+// fontawesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+// iView
 import './plugins/iview.js'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+// 导入 AOS
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
+// require styles
+import 'swiper/dist/css/swiper.css'
+
+library.add(faUserCircle)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+// swiper
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 Vue.config.productionTip = false;
 Vue.directive('click-outside', {
@@ -26,5 +43,8 @@ new Vue({
   router,
   store,
   i18n,
+  created () {
+    AOS.init()
+  },
   render: h => h(App)
 }).$mount('#app')

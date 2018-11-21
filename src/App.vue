@@ -27,6 +27,8 @@ export default {
     circleMenu
   },
   mounted: function() {
+    //设置全局语言
+    this.$i18n.locale = 'en';
     //设置全局颜色
     $("body").css({ "background-color": "#000" });
     setTimeout(function() {

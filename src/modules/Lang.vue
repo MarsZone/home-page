@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="core-box">
-      <!-- <core id='core'></core> -->
+      <core id='core'></core>
     </div>
     <h1>{{ $t("home.index") }} {{ $t("msg.welcome") }}</h1>
 
@@ -12,7 +12,7 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-// import core from '@/components/SquareCore.vue'
+import core from 'components/SquareCore.vue'
 
 export default {
   name: 'home',

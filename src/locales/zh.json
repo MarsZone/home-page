@@ -1,4 +1,26 @@
 {
+  "city": {
+    "home": {
+      "welcome": {
+        "lineA": "欢迎访问",
+        "lineB": "星际联邦公民官网"
+      }
+    },
+    "nav": {
+      "about": "关于",
+      "home": "主页",
+      "market": {
+        "civil": "民用",
+        "military": "军用",
+        "title": "市场"
+      },
+      "work": {
+        "findwork": "寻找工作",
+        "hire": "发布工作",
+        "title": "工作"
+      }
+    }
+  },
   "home": {
     "index": "主页"
   },

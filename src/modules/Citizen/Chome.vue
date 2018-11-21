@@ -8,20 +8,21 @@
     <div class="star-small"></div>
     <div class="star-medium"></div>
     <div class="star-big"></div>
-    <!-- 文字测试 -->
-    <!-- <div class='title'>
-      <span>Welcome to UFPC</span>
-      <br>
-      <span>United Federation of Planets Citizenship</span>
-    </div> -->
     <div class="page">
       <div class='section header'>
-        Header
+        <!-- 文字测试 -->
+        <div class='title'>
+          <span>{{$t('city.home.welcome.lineA')}}</span>
+          <br />
+          <br />
+          <span>{{$t('city.home.welcome.lineB')}}</span>
+        </div>
+        <cheader></cheader>
       </div>
       <div class='section content'>
         content
       </div>
-      <div class='section sign-up'>
+      <div data-aos="fade-in" class='section sign-up'>
         sign-up
       </div>
       <div class='section feature-1'>
@@ -33,12 +34,17 @@
       <div class='section feature-3'>
         feature-3
       </div>
+      <div class='section footer'>
+        <cfooter></cfooter>
+      </div>
     </div>
     
   </div>
 </template>
 <script>
   import navigation from './components/navigation';
+  import cheader from './components/cheader';
+  import cfooter from './components/cfooter';
   export default {
     data:function(){
       return{
@@ -46,6 +52,8 @@
     },
     components: {
       navigation,
+      cheader,
+      cfooter
     },
     methods: {
     }
@@ -63,6 +71,28 @@
   h1 {
     text-align: center;
     padding-top: 20px;
+  }
+  .title{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    // font-family: 'lato',sans-serif;
+    font-family: 'Orbitron',sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 108, 255, 0.8);
+    font-size: 30px;
+    letter-spacing: 5px;
+    z-index: 10;
+    span{
+      // background: -webkit-linear-gradient(white, #38495a);
+      // background-clip: text;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+      color: white
+    }
   }
   @import "./style/layout.less";
 </style>
