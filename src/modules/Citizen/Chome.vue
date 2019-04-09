@@ -10,7 +10,7 @@
     <div class="star-big"></div>
     <div class="page">
       <div class='section header'>
-        <!-- 文字测试 -->
+        <!-- 头部 -->
         <div class='title'>
           <span>{{$t('city.home.welcome.lineA')}}</span>
           <br />
@@ -22,17 +22,27 @@
       <div class='section content'>
         content
       </div>
-      <div data-aos="fade-in" class='section sign-up'>
-        sign-up
+      <!-- 星图 -->
+      <!-- <div class="section solar-system"></div> -->
+      <!-- 政府新闻 -->
+      <vNewsBoard news-title="city.news.board.title" class="news-board"></vNewsBoard>
+      <div class='section city-news'>
+        <cityNews></cityNews>
       </div>
       <div class='section feature-1'>
         feature-1
       </div>
-      <div class='section feature-2'>
-        feature-2
+      <!-- charts 财经走势 -->
+      <div data-aos="zoom-in" class='section feature-stock-chart'>
+        <marketChart></marketChart>
       </div>
-      <div class='section feature-3'>
-        feature-3
+      <!-- 自定义日历 -->
+      <div data-aos="fade-left" class='section feature-calendar'>
+        <calendar></calendar>
+      </div>
+      <!-- 注意事项 -->
+      <div class="">
+
       </div>
       <div class='section footer'>
         <cfooter></cfooter>
@@ -45,6 +55,11 @@
   import navigation from './components/navigation';
   import cheader from './components/cheader';
   import cfooter from './components/cfooter';
+  import vNewsBoard from './components/views/newsBoard';
+  import cityNews from './components/cityNews';
+  import solarSystem from './components/solarSystem'
+  import marketChart from './components/charts/marketChart';
+  import calendar from './components/calendar/calendar';
   export default {
     data:function(){
       return{
@@ -53,7 +68,12 @@
     components: {
       navigation,
       cheader,
-      cfooter
+      cfooter,
+      cityNews,
+      vNewsBoard,
+      solarSystem,
+      marketChart,
+      calendar
     },
     methods: {
     }

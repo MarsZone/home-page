@@ -19,6 +19,12 @@
         "hire": "Hire",
         "title": "Work"
       }
+    },
+    "news": {
+      "board": {
+        "title": "GOVERMENT NEWS",
+        "view_all": "VIEW ALL"
+      }
     }
   },
   "home": {

@@ -28,6 +28,7 @@ export default {
   },
   mounted: function() {
     //设置全局语言
+    this.$store.commit("updateCurrentLocale",'en');
     this.$i18n.locale = 'en';
     //设置全局颜色
     $("body").css({ "background-color": "#000" });

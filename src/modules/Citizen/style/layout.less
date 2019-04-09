@@ -8,10 +8,12 @@
   .section {
     width: 100%;
     // height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: chocolate;
+    .flex_center{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   .header {
     position: relative;
@@ -22,29 +24,39 @@
       background-color: rgba(#5995da, @alpha);
       height: 80px;
   }
+  .solar-system{
+    height: 600px;
+    background-color: rgba(#6b7a62, @alpha);
+  }
   .content {
     background-color: rgba(#2c93c4, @alpha);
     height: 600px;
   }
 
-  .sign-up {
-    height: 300px;
-    background-color: rgba(#D6E9FE, @alpha);
+  .city-news {
+    // height: 500px;
+    font-family: sans-serif;
+    max-width: 1140px;
+    margin: 5px auto;
+    position: relative;
+    margin-bottom: 20px;
+    // background-color: rgba(#D6E9FE, @alpha);
   }
 
   .feature-1 {
-    height: 300px;
-    background-color: rgba(#F5CF8E, @alpha);
+    height: 420px;
+    // background-color: rgba(#F5CF8E, @alpha);
   }
 
-  .feature-2 {
-    height: 300px;
-    background-color: rgba(#F09A9D, @alpha);
+  .feature-calendar {
+    height: 420px;
+    overflow: hidden;
+    // background-color: rgba(#F09A9D, @alpha);
   }
 
-  .feature-3 {
-    height: 300px;
-    background-color: rgba(#C8C6FA, @alpha);
+  .feature-stock-chart {
+    height: 420px;
+    // background-color: rgba(#C8C6FA, @alpha);
   }
   
   .footer{
@@ -64,10 +76,9 @@
     .about {
       background-color: #F5CF8E; /* Yellow */
     }
-    .sign-up,
     .feature-1,
-    .feature-2,
-    .feature-3 {
+    .feature-calendar,
+    .feature-stock-chart {
       width: 50%;
     }
   }
@@ -82,19 +93,30 @@
       margin: 0 auto;
     }
     .feature-1,
-    .feature-2,
-    .feature-3 {
+    .feature-calendar,
+    .feature-stock-chart {
       width: 33.3%;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      padding-left: 2%;
+      padding-right: 2%;
     }
     .header {
-      height: 400px;
+      height: 600px;
     }
-    .sign-up {
-      height: 200px;
+    // 分割线
+    .news-board{
       order: 1;
     }
-    .content {
+    // 具体新闻
+    .city-news{
       order: 2;
+    }
+    .solar-system{
+      order: 3;
+    }
+    .content {
+      order: 4;
     }
     .footer{
       order: 10;

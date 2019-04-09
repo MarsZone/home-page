@@ -1,5 +1,5 @@
 <template>
-    <Dropdown trigger="click" class="override" @on-click="switchLang">
+    <Dropdown class="override" @on-click="switchLang">
         <a class="fontColor" href="javascript:void(0)">
             {{currentLang}}
             <Icon type="ios-arrow-down"></Icon>
@@ -23,9 +23,11 @@ export default {
         switchLang:function(name){
             if(name == 'en')
             {
+                this.$store.commit("updateCurrentLocale",'en');
                 this.$i18n.locale = 'en';
                 this.currentLang = 'En';
             }else{
+                this.$store.commit("updateCurrentLocale",'zh');
                 this.$i18n.locale = 'zh';
                 this.currentLang = '中文'
             }
@@ -33,7 +35,6 @@ export default {
     }
 }
 </script>
-
 
 <style lang="less" scoped>
     .override /deep/ .ivu-select-dropdown{

@@ -19,6 +19,12 @@
         "hire": "发布工作",
         "title": "工作"
       }
+    },
+    "news": {
+      "board": {
+        "title": "新闻放送",
+        "view_all": "查看更多"
+      }
     }
   },
   "home": {

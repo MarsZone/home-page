@@ -7,6 +7,8 @@ function resolve (dir) {
 }
 module.exports = {
   // options...
+  
+  productionSourceMap: false,
   assetsDir: 'vasset',
   lintOnSave: undefined,
   chainWebpack: config => {
@@ -31,6 +33,11 @@ module.exports = {
       fallbackLocale: 'zh',
       localeDir: 'locales',
       enableInSFC: false
+    },
+    moment: {
+      locales: [
+        'en'
+      ]
     }
   }
   
