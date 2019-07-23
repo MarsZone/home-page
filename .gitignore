@@ -6,3 +6,6 @@ src/.DS_Store
 src/components/.DS_Store
 .DS_Store
 public/.DS_Store
+.vs/slnx.sqlite
+.vs/home-page/v15/.suo
+.vs/
