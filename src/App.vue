@@ -1,15 +1,16 @@
 <template>
   <div id="app">
     <!-- 菜单栏 -->
-    <transition name="flipOutX" v-on:after-leave="circleLeave">
+    <!-- <transition name="flipOutX" v-on:after-leave="circleLeave">
       <div class="menu_box" v-on:click='onclick' v-if="menu_show">
         <circle-menu ref = 'circleMenu'></circle-menu>
       </div>
-    </transition>
+    </transition> -->
     <!-- 页面切换 -->
-    <transition name="fade" mode="in-out">
+    <!-- <transition name="fade" mode="in-out">
       <router-view v-if="view_show"/>
-    </transition>
+    </transition> -->
+    <router-view v-if="view_show"/>
   </div>
 </template>
 
@@ -19,7 +20,7 @@ export default {
   data() {
     return {
       checkbox_checked: false,
-      view_show: false,
+      view_show: true,
       menu_show: true
     };
   },
@@ -27,23 +28,20 @@ export default {
     circleMenu
   },
   mounted: function() {
-    //设置全局语言
-    this.$store.commit("updateCurrentLocale",'en');
-    this.$i18n.locale = 'en';
     //设置全局颜色
-    $("body").css({ "background-color": "#000" });
-    setTimeout(function() {
-      $("body").addClass("loaded");
-      setTimeout(function() {
-        $("#loader-wrapper").remove();
-      }, 1000);
-    }, 500);
-    this.ifShowMenu(this.$router.currentRoute.name);
+    // $("body").css({ "background-color": "#000" });
+    // setTimeout(function() {
+    //   $("body").addClass("loaded");
+    //   setTimeout(function() {
+    //     $("#loader-wrapper").remove();
+    //   }, 1000);
+    // }, 500);
+    // this.ifShowMenu(this.$router.currentRoute.name);
   },
   watch: {
     // 如果路由有变化，会再次执行该方法
     $route: function(to,from) {
-      this.ifShowMenu(this.$router.currentRoute.name);
+      // this.ifShowMenu(this.$router.currentRoute.name);
     }
   },
   methods: {

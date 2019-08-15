@@ -18,8 +18,11 @@ import 'swiper/dist/css/swiper.css'
 // 导入black主题
 import BlackDashboard from "./plugins/blackDashboard";
 Vue.use(BlackDashboard);
+
 // swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+import './plugins/vant.js'
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 Vue.config.productionTip = false;
 

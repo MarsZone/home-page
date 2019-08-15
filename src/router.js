@@ -7,9 +7,12 @@ import Citizen from './modules/Citizen/Chome.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/',
+      name: 'home',
+      component: Citizen,
     },
     {
       path: '/about',
@@ -22,7 +25,9 @@ export default new Router({
       component: Lang
     },
     {
-      path: '/citizen',name: 'citizen',component: Citizen,
+      path: '/citizen',
+      name: 'citizen',
+      component: Citizen,
       // children:[
       //   {
       //     path:'',
