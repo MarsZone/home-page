@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <!-- 菜单栏 -->
-    <!-- <transition name="flipOutX" v-on:after-leave="circleLeave">
+    <transition name="flipOutX" v-on:after-leave="circleLeave">
       <div class="menu_box" v-on:click='onclick' v-if="menu_show">
         <circle-menu ref = 'circleMenu'></circle-menu>
       </div>
-    </transition> -->
+    </transition>
     <!-- 页面切换 -->
-    <!-- <transition name="fade" mode="in-out">
+    <transition name="fade" mode="in-out">
       <router-view v-if="view_show"/>
-    </transition> -->
-    <router-view v-if="view_show"/>
+    </transition>
+    <!-- <router-view v-if="view_show"/> -->
   </div>
 </template>
 
@@ -29,14 +29,15 @@ export default {
   },
   mounted: function() {
     //设置全局颜色
-    // $("body").css({ "background-color": "#000" });
-    // setTimeout(function() {
-    //   $("body").addClass("loaded");
-    //   setTimeout(function() {
-    //     $("#loader-wrapper").remove();
-    //   }, 1000);
-    // }, 500);
-    // this.ifShowMenu(this.$router.currentRoute.name);
+    this.$i18n.locale = 'en'
+    $("body").css({ "background-color": "#000" });
+    setTimeout(function() {
+      $("body").addClass("loaded");
+      setTimeout(function() {
+        $("#loader-wrapper").remove();
+      }, 1000);
+    }, 500);
+    this.ifShowMenu(this.$router.currentRoute.name);
   },
   watch: {
     // 如果路由有变化，会再次执行该方法
