@@ -1,10 +1,12 @@
 const path = require('path')
 const webpack = require('webpack');
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const isProduction = process.env.NODE_ENV === 'production'
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
-const name = 'calendarmark' // page title
+const name = 'Citizen' // page title
 const port = process.env.port || process.env.npm_config_port || 9527; // dev port
 module.exports={
   // project deployment base
@@ -22,17 +24,19 @@ module.exports={
 
   // transpileDependencies 默认情况下 babel-loader 会忽略所有 node_modules 中的文件。如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来。
   productionSourceMap:false,
-
-  configureWebpack: {
-    name: name,
-    resolve: {
-      alias: {
-        '@': resolve('src')
-      }
-    },
-    plugins: [
-      new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn|en-us/),
-    ]
+  
+  configureWebpack: config => {
+    config.name = name;
+    config.plugins.push( new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn|en-us/),);
+    if(isProduction){
+      config.plugins.push(
+        new CompressionWebpackPlugin({
+          test: /\.js$|\.html$|\.css$/,
+            // 超过4kb压缩
+          threshold: 10240
+        })
+      )
+    }
   },
 
   devServer: {
@@ -71,7 +75,11 @@ module.exports={
         symbolId: 'icon-[name]'
       })
       .end()
-
+    config.resolve.alias
+      .set('@', resolve('/src'))
+      .set('assets',resolve('/src/assets'))
+      .set('components',resolve('/src/components'))
+      .set('layout',resolve('/src/layout'))
     // set preserveWhitespace
     config.module
       .rule('vue')
