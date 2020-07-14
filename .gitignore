@@ -1,11 +1,21 @@
-
-node_modules/
-
-dist/
-src/.DS_Store
-src/components/.DS_Store
 .DS_Store
-public/.DS_Store
-.vs/slnx.sqlite
-.vs/home-page/v15/.suo
-.vs/
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
