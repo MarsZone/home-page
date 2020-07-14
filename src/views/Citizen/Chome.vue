@@ -60,6 +60,7 @@
   import marketChart from './components/charts/marketChart';
   import calendar from './components/calendar/calendar';
   export default {
+    name: 'Home',
     data:function(){
       return{
       }
@@ -72,6 +73,10 @@
       vNewsBoard,
       marketChart,
       calendar
+    },
+    mounted(){
+    const moment = require('moment');
+    console.log(moment().format());
     },
     methods: {
     }
