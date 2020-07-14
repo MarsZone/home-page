@@ -14,7 +14,8 @@
           </div>
           <ul class="nav-list" v-click-outside='closeEvent' v-show="showList" >
             <li v-for="(item,index) in menuList" :key="item.key" @click="menuClick(item,index)" >
-                <router-link :to=item.href>{{ $t('city.nav.'+item.title) }}</router-link>
+                <router-link :to=item.href v-if="item.key != '1'">{{ $t('city.nav.'+item.title) }}</router-link>
+                <a :href=item.href v-if="item.key == '1'">{{ $t('city.nav.'+item.title) }}</a>
                 <!-- 有子菜单的 -->
                 <ul class="nav-dropdown" v-if="item.dropDown" v-show="item.isShow">
                   <li v-for="subTitle in item.dropDown" :key="subTitle.title">
@@ -46,7 +47,7 @@ export default {
       showList: false,
       showNavDropDown: false,
       menuList: [
-        { href: "citizen", title: "home", key: "1" },
+        { href: "/", title: "home", key: "1" },
         {
           href: "",
           title: "work.title",
@@ -74,7 +75,7 @@ export default {
       { href: "", title: "market.civil" },
       { href: "", title: "market.military" }
     ];
-    this.menuList.forEach(function(value, key, arr) {
+    this.menuList.forEach(function(value) {
       value.key == "2" ? (value.dropDown = workDropDown) : "";
       value.key == "3" ? (value.dropDown = marketDropDown) : "";
     });
