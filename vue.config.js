@@ -39,6 +39,11 @@ module.exports = {
         'en'
       ]
     }
+  },
+
+  devServer: {
+    disableHostCheck: true,
+    port: 8808  // 此处修改你想要的端口号，
   }
   
 }
