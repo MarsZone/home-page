@@ -8,12 +8,21 @@ const name = 'calendarmark' // page title
 const port = process.env.port || process.env.npm_config_port || 9527; // dev port
 module.exports={
   // project deployment base
-  publicPath: '/',
+  publicPath: '/citizen/',
 
   // where to output built files
-  outputDir: 'dist',//输出文件目录
-	assetsDir: 'static',//放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
-  lintOnSave: true, // 是否开启eslint保存检测，有效值：ture | false | 'error'
+  //输出文件目录
+  outputDir: 'citizen',
+
+  //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
+  assetsDir: 'static',
+
+  // 是否开启eslint保存检测，有效值：ture | false | 'error'
+  lintOnSave: true,
+
+  // transpileDependencies 默认情况下 babel-loader 会忽略所有 node_modules 中的文件。如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来。
+  productionSourceMap:false,
+
   configureWebpack: {
     name: name,
     resolve: {
@@ -25,14 +34,16 @@ module.exports={
       new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn|en-us/),
     ]
   },
-   devServer: {
-      port: port,
-      open: true,
-      overlay: {
-        warnings: false,
-        errors: true
-      },
-  },
+
+  devServer: {
+     port: port,
+     open: true,
+     overlay: {
+       warnings: false,
+       errors: true
+     },
+ },
+
   chainWebpack: config => {
 		/**
 		 * 删除懒加载模块的prefetch，降低带宽压力
@@ -78,4 +89,13 @@ module.exports={
         config => config.devtool('cheap-source-map')
       )
 	},
+
+  pluginOptions: {
+    i18n: {
+      locale: 'zh',
+      fallbackLocale: 'zh',
+      localeDir: 'locales',
+      enableInSFC: false
+    }
+  }
 }

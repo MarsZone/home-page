@@ -1,0 +1,36 @@
+{
+  "city": {
+    "home": {
+      "welcome": {
+        "lineA": "Welcome to UFPC",
+        "lineB": "United Federation of Planets Citizenship"
+      }
+    },
+    "nav": {
+      "about": "About",
+      "home": "Home",
+      "market": {
+        "civil": "Civil Use",
+        "military": "Military Use",
+        "title": "Market"
+      },
+      "work": {
+        "findwork": "Work",
+        "hire": "Hire",
+        "title": "Work"
+      }
+    },
+    "news": {
+      "board": {
+        "title": "GOVERMENT NEWS",
+        "view_all": "VIEW ALL"
+      }
+    }
+  },
+  "home": {
+    "index": "Home"
+  },
+  "msg": {
+    "welcome": "welcome"
+  }
+}
