@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Citizen/Chome.vue'
 
 Vue.use(VueRouter)
 
@@ -8,8 +7,20 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
-  }
+    components:resolve=>require(['@/views/citizen/Chome.vue'],resolve)
+  },
+  {
+    path: '/error',
+    name: 'error',
+    component: () => import(/* webpackChunkName: "error" */ '@/views/common/error'),
+    meta: {
+      title: '404页'
+    }
+  },
+  {
+    path: '*',
+    redirect: 'error',
+  },
 ]
 
 const router = new VueRouter({
