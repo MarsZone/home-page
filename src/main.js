@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+// import './routers/intercept'
 import store from './store'
 //导入接口
 import request from './api/require';
@@ -34,6 +35,10 @@ Object.defineProperty(Vue.prototype, '$services', {
   value: services
 });
 
+//错误捕获
+// Vue.config.errorHandler = (err, vm, info) => {
+//   console.error(err);
+// };
 
 new Vue({
   router,
