@@ -3,9 +3,11 @@ import App from './App.vue'
 import router from './router'
 // import './routers/intercept'
 import store from './store'
+//字体
+import './assets/fonts.js'
 //导入接口
-import request from './api/require';
-import { apiUrl } from './api/apiUrl';
+import request from './api/require'
+import { apiUrl } from './api/apiUrl'
 // 多语言
 import i18n from './i18n'
 // 自定义命令

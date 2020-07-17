@@ -169,7 +169,7 @@
         />
       </svg>
       <p class="error-info">抱歉，页面无法访问...</p>
-      <!-- <router-link to="/">返回首页</router-link> -->
+      <router-link to="/">返回首页</router-link>
     </div>
   </div>
 </template>

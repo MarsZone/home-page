@@ -62,7 +62,7 @@ export default {
           dropDown: [],
           isShow: false
         },
-        { href: "about", title: "about", key: "4" }
+        { href: "building", title: "about", key: "4" }
       ]
     };
   },
