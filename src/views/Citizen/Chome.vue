@@ -34,6 +34,7 @@
       </div>
       <!-- charts 财经走势 -->
       <div data-aos="zoom-in" class='section feature-stock-chart'>
+        feature-2
         <marketChart></marketChart>
       </div>
       <!-- 自定义日历 -->
