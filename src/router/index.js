@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import Chome from '../views/citizen/Chome'
 
 Vue.use(VueRouter)
-
+  // components:resolve=>require(['@/views/citizen/Chome.vue'],resolve)
+  // component: () => import('@/views/ums/role/index'),
   const routes = [
   {
     path: '/',
@@ -12,7 +13,6 @@ Vue.use(VueRouter)
     meta: {
       title: 'Home'
     }
-    // components:resolve=>require(['@/views/citizen/Chome.vue'],resolve)
   },
   {
     path: '/error',

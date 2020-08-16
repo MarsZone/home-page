@@ -14,6 +14,10 @@ export default {
     return {
       swiperOption: {
         // effect: "fade",
+        autoplay: {
+          delay: 10000,
+          disableOnInteraction: false
+        },
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -23,6 +27,17 @@ export default {
         }
       }
     };
+  },
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.swiper
+    }
+  },
+  mounted() {
+    // current swiper instance
+    // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
+    // console.log('this is current swiper instance object', this.swiper)
+    // this.swiper.slideTo(3, 2000, false)
   }
 };
 </script>

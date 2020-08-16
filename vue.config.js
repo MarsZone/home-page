@@ -42,6 +42,7 @@ module.exports={
   devServer: {
      port: port,
      open: false,
+     disableHostCheck:true, //解决内网穿透问题
      overlay: {
        warnings: false,
        errors: true

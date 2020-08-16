@@ -3,7 +3,6 @@ import axios from 'axios'; // 引入axios
 import Qs from 'qs'; // 引入qs模块，用来序列化post类型的数据
 import { autoMatch, checkStatus } from './utils.js'; // 处理函数
 
-
 // 创建axios实例
 const instance = axios.create({
     // baseURL: process.env.BASE_URL,
@@ -100,3 +99,4 @@ const request = async function (opt) {
     return err;
   }
 }
+export default request;
