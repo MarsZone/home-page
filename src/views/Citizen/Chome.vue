@@ -8,29 +8,32 @@
     <div class="star-big"></div>
     <div class="page">
       <!-- 主页 -->
-      <main-page></main-page>
+      <main-page v-if="isShowMain"></main-page>
+      <mainMap></mainMap>
       <!-- 地图页 -->
-      sdfdsf
-      <!-- 尾页 -->
-      <div class='section footer'>
-        <cfooter></cfooter>
-      </div>
+    </div>
+    <!-- 尾页 -->
+    <div class='section footer'>
+      <cfooter></cfooter>
     </div>
   </div>
 </template>
 <script>
   import navigation from './components/navigation';
   import mainPage from './pages/mainPage'
+  import mainMap from './pages/baseView/map'
   import cfooter from './components/cfooter';
   export default {
     name: 'Home',
     data:function(){
       return{
+        isShowMain:false,
       }
     },
     components: {
       navigation,
       mainPage,
+      mainMap,
       cfooter,
     },
     mounted(){
@@ -54,10 +57,12 @@
   .page{
     width: 100%;
     display: flex;
+    min-height: calc(100vh - 70px);
     flex-wrap: wrap;
-    .footer{
-      width: 100%;
-    }
+  }
+  .footer{
+    width: 100%;
+    margin-bottom: 0px;
   }
 </style>
 

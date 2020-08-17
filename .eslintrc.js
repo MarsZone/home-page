@@ -14,6 +14,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'off' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-unused-vars':"off",
+    'vue/require-v-for-key':'off',
     "vue/no-parsing-error": [2, { "x-invalid-end-tag": false }]
   }
 }
